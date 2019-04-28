@@ -1,0 +1,19 @@
+TITLE: Eggplant
+ARTIST: won't fix
+// 0:EASY 1:NORMAL 2:HARD 3:EXTRA 4:MADNESS
+DIFFICULTY: 3
+LEVEL: 12.4
+BPM: 130
+BEAT: 4/4
+JACKET: jacket.png
+SOURCE: eggplant.ogg
+
+@START
+// 0: REST (休符)
+// 1: TAP (普通の)
+// 2: GOLD (判定あまあまクソデカ演出)
+// 3: HOLD (押したまま)
+// 4: TRAP (押してはいけない)
+// 5: TRAP-HOLD (長いTRAP)
+
+@END
