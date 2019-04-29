@@ -111,6 +111,11 @@ namespace Otoge
             g.Rect(0, 0, 360, 500, Color.White, 8, isCurrent ? Color.Orange : Color.Black);
 			// jacket
 			g.Rect(32, 32, 328, 328, Color.Gray);
+			var jacket = new Sprite(score.Jacket);
+			jacket.Location = new Vector(32, 32);
+			jacket.Width = 296;
+			jacket.Height = 296;
+			current.Add(jacket);
             // difficulty
 
             current.Add(new TextDrawable(Helper.CreateDifficulty(score.Difficulty, score.Level), new Font(FontFamily.GenericSansSerif, 12), Color.Black)
