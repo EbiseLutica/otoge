@@ -37,7 +37,7 @@ namespace Otoge
 		}
 
 		public override void OnStart(Router router, Dictionary<string, object> args)
-		{
+        {
             router.Game.Title = "選曲";
 			scores = Directory.EnumerateFiles("scores", "*.score", SearchOption.AllDirectories)
 				.Select(p => Score.LoadFrom(p))
@@ -69,7 +69,9 @@ namespace Otoge
             }
 			if (f && !prevF || j && !prevJ)
 			{
-				// 開始
+				router.ChangeScene<PlayScene>(new Dictionary<string, object>{
+					{ "score", CurrentScore }
+				});
 			}
 			if (escape && !prevEscape)
 			{
@@ -157,6 +159,6 @@ namespace Otoge
 		bool prevK = Input.Keyboard.K.IsPressed;
 		bool prevSpace = Input.Keyboard.Space.IsPressed;
         bool prevEscape = Input.Keyboard.Escape.IsPressed;
-		CancellationTokenSource cts;
+        CancellationTokenSource cts;
 	}
 }
