@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotFeather" Version="1.0.3" />
+    <PackageReference Include="DotFeather" Version="1.1.1" />
     <PackageReference Include="DotFeather.Router" Version="1.0.0" />
   </ItemGroup>
 
