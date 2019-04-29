@@ -10,6 +10,7 @@ namespace Otoge
         public override void OnStart(Router router, Dictionary<string, object> args)
 		{
 			BackgroundColor = Color.White;
+			router.Game.Title = "音ゲー";
 			var title = new TextDrawable("音ゲー", new Font(FontFamily.GenericSansSerif, 128), Color.Black);
 			title.Location = new Vector(router.Game.Width / 2 - title.RenderedTexture.Size.Width / 2, 96);
 

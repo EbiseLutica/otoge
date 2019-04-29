@@ -38,6 +38,7 @@ namespace Otoge
 
 		public override void OnStart(Router router, Dictionary<string, object> args)
 		{
+            router.Game.Title = "選曲";
 			scores = Directory.EnumerateFiles("scores", "*.score", SearchOption.AllDirectories)
 				.Select(p => Score.LoadFrom(p))
 				.ToArray();
