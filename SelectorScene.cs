@@ -53,6 +53,7 @@ namespace Otoge
             var j = Input.Keyboard.J.IsPressed;
             var k = Input.Keyboard.K.IsPressed;
 			var space = Input.Keyboard.Space.IsPressed;
+            var escape = Input.Keyboard.Escape.IsPressed;
 
 			if (d && !prevD || k && !prevK)
 			{
@@ -70,7 +71,7 @@ namespace Otoge
 			{
 				// 開始
 			}
-			if (Input.Keyboard.Escape.IsPressed)
+			if (escape && !prevEscape)
 			{
 				router.ChangeScene<TitleScene>();
 			}
@@ -80,6 +81,7 @@ namespace Otoge
 			prevJ = j;
 			prevK = k;
 			prevSpace = space;
+            prevEscape = escape;
 		}
 
 		public void UpdateView(Router router)
@@ -111,7 +113,7 @@ namespace Otoge
 			g.Rect(32, 32, 328, 328, Color.Gray);
             // difficulty
 
-            current.Add(new TextDrawable(CreateDifficulty(score.Difficulty, score.Level), new Font(FontFamily.GenericSansSerif, 12), Color.Black)
+            current.Add(new TextDrawable(Helper.CreateDifficulty(score.Difficulty, score.Level), new Font(FontFamily.GenericSansSerif, 12), Color.Black)
 			{
 				Location = new Vector(32, 332)
 			});
@@ -136,13 +138,6 @@ namespace Otoge
             return current;
 		}
 
-        public string CreateDifficulty(Difficulty difficulty, double level)
-        {
-			var d = difficulty.ToString().ToUpperInvariant();
-			var lv = (int)level + ((level * 10 - (int)level * 10) >= 7 ? "+" : "");
-			return $"{d} {lv}";
-        }
-
         public override void OnDestroy(Router router)
 		{
 			player.Dispose();
@@ -151,7 +146,12 @@ namespace Otoge
 		Score[] scores;
 		int index = 0;
 		AudioPlayer player = new AudioPlayer();
-		bool prevD, prevF, prevJ, prevK, prevSpace;
+		bool prevD = Input.Keyboard.D.IsPressed;
+		bool prevF = Input.Keyboard.F.IsPressed;
+		bool prevJ = Input.Keyboard.J.IsPressed;
+		bool prevK = Input.Keyboard.K.IsPressed;
+		bool prevSpace = Input.Keyboard.Space.IsPressed;
+        bool prevEscape = Input.Keyboard.Escape.IsPressed;
 		CancellationTokenSource cts;
 	}
 }
