@@ -11,11 +11,25 @@ using DotFeather.Router;
 
 namespace Otoge
 {
+	/// <summary>
+	/// 選曲画面のシーンです。
+	/// </summary>
 	public class SelectorScene : Scene
 	{
+		/// <summary>
+		/// 現在指定している譜面を取得します。
+		/// </summary>
 		public Score CurrentScore => TryGetScore(index);
+
+		/// <summary>
+		/// 左の譜面を取得します。
+		/// </summary>
 		public Score PrevScore => TryGetScore(index - 1);
-		public Score NextScore => TryGetScore(index + 1);
+
+        /// <summary>
+        /// 右の譜面を取得します。
+        /// </summary>
+        public Score NextScore => TryGetScore(index + 1);
 
 		/// <summary>
 		/// 安全にスコアを取得します。
@@ -86,6 +100,9 @@ namespace Otoge
             prevEscape = escape;
 		}
 
+		/// <summary>
+		/// ビューをびゅびゅっと更新します。
+		/// </summary>
 		public void UpdateView(Router router)
 		{
 			BackgroundColor = Color.Beige;
